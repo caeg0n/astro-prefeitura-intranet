@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import OfficialDocuments from '../../components/react/oficios/OfficialDocuments.jsx';
+//import HorizontalCard from "../../components/HorizontalCard.astro";
+export function getStaticPaths () {
+ return [
+    {params: {slug: 'rh'}},
+    {params: {slug: 'cpd'}},
+    {params: {slug: 'obras'}},
+    {params: {slug: 'licita'}},
+    {params: {slug: 'contabil'}},
+    {params: {slug: 'tributos'}},
+    {params: {slug: 'protocolo'}},
+    {params: {slug: 'ci'}},
+    {params: {slug: 'gabinete'}},
+    {params: {slug: undefined}}
+  ];
+}
+const { slug } = Astro.params;
+---
+
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">CONTROLE DE OFICIOS</div>
+    <div class="mt-8">
+      <div class="mt-4">
+        <a class="btn" href="/oficios/rh" target="_self"> RH</a>
+        <a class="btn" href="/oficios/cpd" target="_self"> CPD</a>
+        <a class="btn" href="/oficios/obras" target="_self"> SECRETARIA DE OBRAS</a>
+        <a class="btn" href="/oficios/licita" target="_self"> LICITAÇÃO</a>
+        <a class="btn" href="/oficios/contabil" target="_self"> CONTABILIDADE</a>
+      </div>
+      <div class="mt-4">
+        <a class="btn" href="/oficios/tributos" target="_self"> TRIBUTOS</a>
+        <a class="btn" href="/oficios/protocolo" target="_self"> PROTOCOLO</a>
+        <a class="btn" href="/oficios/ci" target="_self"> CONTROLE INTERNO</a>
+        <a class="btn" href="/oficios/gabinete" target="_self"> GABINETE DO PREFEITO</a>
+      </div>
+      <OfficialDocuments client:load slug={slug} />
+      <!-- <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
+        Get This template
+      </a> -->
+    </div>
+  </div>
+</BaseLayout>

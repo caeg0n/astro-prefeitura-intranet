@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
+import HorizontalShopItem from "../components/HorizontalShopItem.astro";
 // import { getCollection } from "astro:content";
 // import createSlug from "../lib/createSlug"
 // const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -51,10 +52,26 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-3xl w-full font-bold mb-5 mt-10">CPD (centro de processamento de dados)</div>
   </div>
   <div class="divider my-0"></div>
-  <HorizontalCard
+  <HorizontalShopItem
     title="Inventario de equipamentos"
-    img="/inventario.png"
+    img="/servidores2.png"
     desc="Relação dos equipamentos de infomartica da prefeitura"
+    url="inventario"
+    badge="EM BREVE"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalShopItem
+    title="Gerador de voucher"
+    img="/wifi.jpg"
+    desc="Gere rapidamente voucher's para acesso a rede wi-fi da prefeitura."
+    url="inventario"
+    badge="EM BREVE"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalShopItem
+    title="Status dos servidores"
+    img="/servers.png"
+    desc="Check quais servidors da prefeitura estão online e quais estão estão reiniciando para manutenção."
     url="inventario"
     badge="EM BREVE"
   />
