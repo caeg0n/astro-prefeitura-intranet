@@ -1,7 +1,9 @@
 ---
+import "../../components/react/oficios/style.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import OfficialDocuments from '../../components/react/oficios/OfficialDocuments.jsx';
 //import HorizontalCard from "../../components/HorizontalCard.astro";
+
 export function getStaticPaths () {
  return [
     {params: {slug: 'rh'}},
@@ -16,6 +18,7 @@ export function getStaticPaths () {
     {params: {slug: undefined}}
   ];
 }
+//export const prerender = true;
 const { slug } = Astro.params;
 ---
 

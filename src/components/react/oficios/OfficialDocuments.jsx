@@ -1,5 +1,4 @@
-import "./style.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SelectButton } from "primereact/selectbutton";
 import { useStore } from "@nanostores/react";
 import { addODNumbers, oDNumbers } from "../../../storeOficio";
