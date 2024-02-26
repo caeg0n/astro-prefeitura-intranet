@@ -13,7 +13,10 @@ export default defineConfig({
   vite: {
     ssr: {
       noExternal: ['primereact']
-    }
+    },
+    server: {
+      watch: { usePolling: true },
+    },
   },
   output: "server",
   adapter: node({

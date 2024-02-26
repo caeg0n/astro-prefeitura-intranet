@@ -1,0 +1,12 @@
+services:
+  web:
+    image: k43g0n/astro-prefeitura-intranet:v_1
+    build:  .
+    ports:
+      - "4321:4321"
+    volumes:
+      - "./:/app"
+      - "/app/.tscache"
+      - "/app/dist"
+      - "/app/node_modules"
+    container_name: prefeitura-intranet
