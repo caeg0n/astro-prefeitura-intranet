@@ -1,9 +1,11 @@
 ---
+import "../../components/react/oficios/style.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import VoucherGenerator from "../../components/react/vouchers/VoucherGenerator.jsx";
 
 export function getStaticPaths () {
  return [
+    {params: {slug: 'rh'}},
     {params: {slug: undefined}}
   ];
 }

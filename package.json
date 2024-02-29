@@ -23,6 +23,7 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "astro": "^4.4.0",
+    "axios": "^1.6.7",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
     "nanostores": "^0.9.5",

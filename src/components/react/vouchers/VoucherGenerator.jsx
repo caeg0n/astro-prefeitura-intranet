@@ -1,21 +1,26 @@
+import React from "react";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { SelectButton } from "primereact/selectbutton";
-import { Button } from 'primereact/button';
+import { Button } from "primereact/button";
 //import { useStore } from "@nanostores/react";
 //import { addODNumbers, oDNumbers } from "../../../storeOficio";
 
-// const componentStyles = `
-// .official-documents .p-button {
-//   display: inline-flex;
-// }
-// .p-buttonset .p-button:first-of-type {
-//   border-top-right-radius: 0;
-//   border-bottom-right-radius: 0;
-// }
-// .p-buttonset .p-button:not(:last-child) {
-//   border-right: 0;
-// }
-// `;
+const componentStyles = `
+.p-button.p-button-outlined {
+  background-color: transparent;
+  color: #06b6d4;
+  border: 1px solid;
+}
+.p-button {
+  color: #ffffff;
+  background: #06b6d4;
+  border: 1px solid #06b6d4;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
+}
+`;
 
 function VoucherGenerator({ slug }) {
   //const numberOfOficios = 100;
@@ -26,7 +31,7 @@ function VoucherGenerator({ slug }) {
   //   value: k + 1,
   // }));
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   //setElements(selecteds);
   // }, []);
 
@@ -34,26 +39,69 @@ function VoucherGenerator({ slug }) {
   //   addODNumbers(value);
   // }
 
+  const generateVoucher = async () => {
+    const baseURL = "http://192.168.1.252:8443";
+    const username = "admin";
+    const password = "@#mrRobot134";
+    try {
+      const loginResponse = await axios.post(
+        `${baseURL}/api/login`,
+        {
+          username,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const cookies = loginResponse.headers["set-cookie"];
+      const voucherResponse = await axios.post(
+        `${baseURL}/api/s/{site}/cmd/hotspot`,
+        {
+          cmd: "create-voucher",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Cookie: cookies.join("; "),
+          },
+        }
+      );
+      console.log("Voucher generated:", voucherResponse.data);
+      return voucherResponse.data;
+    } catch (error) {
+      console.error("Error generating voucher:", error);
+      throw error; 
+    }
+  };
+
+  const handleButtonClick = () => {
+    generateVoucher();
+  }
+
   return (
     <div>
-      <Button type="button" label="Emails" badge="8" />
-      <Button type="button" label="Messages" icon="pi pi-users" outlined badge="2" badgeClassName="p-badge-danger" />
-      {/* <style>{componentStyles}</style> */}
-      {/* <div className="official-documents">
-        <div className="divider my-0"></div>
-        <div className="card">
-          <b>
-            <h4>Número de oficios</h4>
-          </b>
-          <SelectButton
-            value={elements}
-            options={options}
-            onChange={(e) => handleNumberClick(e.value)}
-            optionLabel="name"
-            multiple
-          />
-        </div>
-      </div> */}
+      <style>{componentStyles}</style>
+      <Button
+        type="button"
+        label="Voucher de 24hrs"
+        icon="pi pi-ticket"
+        outlined
+        badge="0"
+        badgeClassName="p-badge-success"
+        onClick={handleButtonClick}
+      />
+      <Button
+        type="button"
+        label="Voucher de 7 dias"
+        icon="pi pi-ticket"
+        outlined
+        badge="0"
+        badgeClassName="p-badge-success"
+        disabled
+      />
     </div>
   );
 }
