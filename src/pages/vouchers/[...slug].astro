@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import VoucherGenerator from "../../components/react/vouchers/VoucherGenerator.jsx";
+
+export function getStaticPaths () {
+ return [
+    {params: {slug: undefined}}
+  ];
+}
+const { slug } = Astro.params;
+---
+
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
+  <div>
+    <div class="text-3xl w-full font-bold mb-5">GERADOR DE VOUCHER</div>
+    <div class="mt-12"> 
+      <VoucherGenerator client:load slug={slug} />
+    </div>
+  </div>
+</BaseLayout>

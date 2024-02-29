@@ -16,46 +16,20 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
     <div class="py-2">
       <text class="text-lg">
         Esta é a <b>Intranet</b> da prefeitura municipal de campinápolis, aqui vamos disponibilizar arquivos e informações
-        refeerente a todas as secretarias da prefeitura e disponibiliza-las para os servidores que acessam a rede.
+        referente a todas as secretarias da prefeitura e disponibiliza-las para os servidores que acessam a rede.
       </text>
     </div>
   </div>
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-2">RH (recursos humanos)</div>
-  </div>
-
-  <HorizontalCard
-  title="Escala de Férias"
-    img="/ferias.png"
-    desc="Confira aqui todos os servidores e suas escalas de periodos de férias."
-    url="/construction"
-    badge="EM BREVE"
-  />
-  <!-- <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  /> -->
-  <!-- <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
-  /> -->
-
+  <!-- CPD -->
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">CPD (centro de processamento de dados)</div>
   </div>
   <div class="divider my-0"></div>
   <HorizontalShopItem
-    title="Inventario de equipamentos"
+    title="Inventário de equipamentos"
     img="/servidores2.png"
-    desc="Relação dos equipamentos de infomartica da prefeitura"
+    desc="Relação dos equipamentos de infomática da prefeitura"
     url="/construction"
     badge="EM BREVE"
   />
@@ -63,7 +37,7 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
   <HorizontalShopItem
     title="Gerador de voucher"
     img="/wifi.jpg"
-    desc="Gere rapidamente voucher's para acesso a rede wi-fi da prefeitura."
+    desc="Gere rapidamente um voucher para acesso a rede wi-fi da prefeitura."
     url="/construction"
     badge="EM BREVE"
   />
@@ -71,38 +45,36 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
   <HorizontalShopItem
     title="Status dos servidores"
     img="/servers.png"
-    desc="Check quais servidors da prefeitura estão online e quais estão estão reiniciando para manutenção."
+    desc="Verifique quais servidores da prefeitura estão online e quais estão em manutenção."
     url="/construction"
     badge="EM BREVE"
   />
 
+  <!-- RH -->
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">RH (recursos humanos)</div>
+  </div>
+  <div class="divider my-0"></div>
+  <HorizontalCard
+  title="Requerimento de Férias"
+    img="/ferias.png"
+    desc="Acesse aqui os modelos de requerimentos."
+    url="/construction"
+    badge="EM BREVE"
+  />
+  
+  <!-- GABINETE -->
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">GABINETE</div>
   </div>
-
   <div class="divider my-0"></div>
   <HorizontalCard
     title="Número de Oficios"
     img="/oficio.png"
-    desc="Use a ferramenta de organização de oficios para registrar a numeroação dos oficios divididos por setores"
+    desc="Use a ferramenta de organização de oficios para organizar os oficios do seu setor."
     url="/construction"
     target="_self"
     badge="EM BREVE"
   />
 
-  <!-- {
-    last_posts.map((post) => (
-      <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
-      </>
-    ))
-  } -->
 </BaseLayout>

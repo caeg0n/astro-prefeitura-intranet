@@ -29,6 +29,10 @@ function OfficialDocuments({ slug }) {
     setElements(selecteds);
   }, [selecteds]);
 
+  const handleNumberClick = (value) => {
+    addODNumbers(value);
+  }
+
   return (
     <div>
       <style>{componentStyles}</style>
@@ -41,7 +45,7 @@ function OfficialDocuments({ slug }) {
           <SelectButton
             value={elements}
             options={options}
-            onChange={(e) => addODNumbers(e.value)}
+            onChange={(e) => handleNumberClick(e.value)}
             optionLabel="name"
             multiple
           />
