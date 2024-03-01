@@ -39,44 +39,6 @@ function VoucherGenerator({ slug }) {
   //   addODNumbers(value);
   // }
 
-  const generateVoucher = async () => {
-    const baseURL = "http://192.168.1.252:8443";
-    const username = "admin";
-    const password = "@#mrRobot134";
-    try {
-      const loginResponse = await axios.post(
-        `${baseURL}/api/login`,
-        {
-          username,
-          password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const cookies = loginResponse.headers["set-cookie"];
-      const voucherResponse = await axios.post(
-        `${baseURL}/api/s/{site}/cmd/hotspot`,
-        {
-          cmd: "create-voucher",
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Cookie: cookies.join("; "),
-          },
-        }
-      );
-      console.log("Voucher generated:", voucherResponse.data);
-      return voucherResponse.data;
-    } catch (error) {
-      console.error("Error generating voucher:", error);
-      throw error; 
-    }
-  };
-
   const handleButtonClick = () => {
     generateVoucher();
   }
