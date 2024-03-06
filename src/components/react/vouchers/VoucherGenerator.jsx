@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Button } from "primereact/button";
+import { ProgressSpinner } from 'primereact/progressspinner';
 //import { useStore } from "@nanostores/react";
 //import { addODNumbers, oDNumbers } from "../../../storeOficio";
 
@@ -20,41 +21,43 @@ const componentStyles = `
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   border-radius: 6px;
 }
+.voucher-display {
+  font-size: 2rem; /* Large font size */
+  color: #06b6d4; /* Same color theme as the button */
+  margin-top: 20px; /* Space between the button and the text */
+  font-weight: bold; /* Make the font bold */
+}
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 `;
 
-function VoucherGenerator({ slug }) {
-  //const numberOfOficios = 100;
-  //const [elements, setElements] = useState([]);
-  //let selecteds = useStore(oDNumbers);
-  // const options = Array.from({ length: numberOfOficios }, (v, k) => ({
-  //   name: `${k + 1}`,
-  //   value: k + 1,
-  // }));
-
-  // useEffect(() => {
-  //   //setElements(selecteds);
-  // }, []);
-
-  // const handleNumberClick = (value) => {
-  //   addODNumbers(value);
-  // }
+function VoucherGenerator() {
+  const [voucher, setVoucher] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleButtonClick = () => {
-    generateVoucher();
-  }
+    setIsLoading(true); 
+    axios.defaults.baseURL = 'http://192.168.1.15:3000/http://192.168.1.15:65527';
+    axios
+      .get()
+      .then((response) => {
+        setVoucher(response.data.code);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setVoucher("aconteceu um erro");
+        setIsLoading(false);
+      });
+  };
+
+  useEffect(() => {});
 
   return (
     <div>
       <style>{componentStyles}</style>
-      <Button
-        type="button"
-        label="Voucher de 24hrs"
-        icon="pi pi-ticket"
-        outlined
-        badge="0"
-        badgeClassName="p-badge-success"
-        onClick={handleButtonClick}
-      />
       <Button
         type="button"
         label="Voucher de 7 dias"
@@ -62,8 +65,15 @@ function VoucherGenerator({ slug }) {
         outlined
         badge="0"
         badgeClassName="p-badge-success"
-        disabled
+        onClick={handleButtonClick}
       />
+      {isLoading ? (
+        <div className="spinner-container">
+          <ProgressSpinner style={{width: '50px', height: '50px'}} strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s" />
+        </div>
+      ) : (
+        voucher && <div className="voucher-display">Voucher: {voucher}</div>
+      )}
     </div>
   );
 }
