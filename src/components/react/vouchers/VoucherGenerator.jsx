@@ -63,8 +63,6 @@ function VoucherGenerator() {
         label="Voucher de 7 dias"
         icon="pi pi-ticket"
         outlined
-        badge="0"
-        badgeClassName="p-badge-success"
         onClick={handleButtonClick}
       />
       {isLoading ? (

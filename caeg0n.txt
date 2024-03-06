@@ -5,5 +5,6 @@ sudo docker build -t k43g0n/astro-prefeitura-intranet:v_1 .
 
 #docker
 sudo docker build -t k43g0n/astro-prefeitura-intranet:v_2 .
+#rancher
 docker run -d --name prefeitura-intranet -p 4321:4321 -v "$(pwd):/app" -v /app/.tscache -v /app/dist -v /app/node_modules k43g0n/astro-prefeitura-intranet:v_2
 
