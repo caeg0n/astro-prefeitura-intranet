@@ -25,6 +25,14 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">CPD (centro de processamento de dados)</div>
   </div>
+  <HorizontalShopItem
+    title="Status dos servidores"
+    img="/servers.png"
+    desc="Verifique quais servidores da prefeitura estão online e quais estão em manutenção."
+    url="/servers"
+    badge="NOVIDADE"
+    badgeNovidade={true}
+  />
   <div class="divider my-0"></div>
   <HorizontalShopItem
     title="Gerador de voucher"
@@ -42,15 +50,6 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
     url="/construction"
     badge="EM BREVE"
   />
-  <div class="divider my-0"></div>
-  <HorizontalShopItem
-    title="Status dos servidores"
-    img="/servers.png"
-    desc="Verifique quais servidores da prefeitura estão online e quais estão em manutenção."
-    url="/construction"
-    badge="EM BREVE"
-  />
-
   <!-- RH -->
   <div>
     <div class="text-3xl w-full font-bold mb-5 mt-10">RH (recursos humanos)</div>

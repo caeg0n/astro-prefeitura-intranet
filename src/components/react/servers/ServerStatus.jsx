@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const StatusIndicator = ({ status }) => {
   const statusClass = status.includes('up') ? 'light-up' : 'light-down';
@@ -16,19 +16,24 @@ const ComputerStatus = ({ data }) => {
 };
 
 function StatusComponent ({ websocketUrl }) {
+  const [isLoading, setIsLoading] = useState(true);
   const [computersStatus, setComputersStatus] = useState({});
 
   useEffect(() => {
     const ws = new WebSocket(websocketUrl);
-
     ws.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      setComputersStatus(data);
+      try{
+        const data = JSON.parse(event.data);
+        if(isLoading) setIsLoading(false);
+        setComputersStatus(data);
+      }catch{}
     };
-
-    // Ensure WebSocket is closed when component is unmounted
     return () => ws.close();
   }, [websocketUrl]);
+
+  if (isLoading) {
+    return <div className="spinner" />;
+  }
 
   return (
     <div>
