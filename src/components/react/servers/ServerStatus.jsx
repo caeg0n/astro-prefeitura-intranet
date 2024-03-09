@@ -9,7 +9,8 @@ const ComputerStatus = ({ data }) => {
   const entries = Object.entries(data);
   return entries.map(([name, status], index) => (
     <div key={index} className="computer-status">
-      <span>{name.replace(/\.campinapolis\.net/, '').replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+      {/* <span>{name.replace(/\.campinapolis\.net/, '').replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span> */}
+      <span>{name.toUpperCase()}</span>
       <StatusIndicator status={status} />
     </div>
   ));
