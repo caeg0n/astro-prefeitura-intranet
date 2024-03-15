@@ -2,6 +2,7 @@
 import "../../components/react/oficios/style.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import OfficialDocuments from '../../components/react/oficios/OfficialDocuments.jsx';
+//import DynamicFieldComponent from '../../components/react/oficios/DynamicFieldComponent.jsx';
 
 export function getStaticPaths () {
  return [
@@ -18,13 +19,14 @@ export function getStaticPaths () {
   ];
 }
 const { slug } = Astro.params;
+// const Dfc = DynamicFieldComponent; 
 ---
 
 <BaseLayout title="Intranet" sideBarActiveItemID="projects">
   <div>
-    <div class="text-3xl w-full font-bold mb-5">CONTROLE DE OFICIOS</div>
+    <div class="text-3xl w-full font-bold mb-5" id="controlDiv">CONTROLE DE OFICIOS {slug?.toLocaleUpperCase()}</div>
     <div class="mt-8">
-      <div class="mt-4">
+      <div class="mt-4" id="linkContainer">
         <a class="btn" href="/oficios/rh" target="_self"> RH</a>
         <a class="btn" href="/oficios/cpd" target="_self"> CPD</a>
         <a class="btn" href="/oficios/obras" target="_self"> SECRETARIA DE OBRAS</a>
@@ -37,7 +39,7 @@ const { slug } = Astro.params;
         <a class="btn" href="/oficios/ci" target="_self"> CONTROLE INTERNO</a>
         <a class="btn" href="/oficios/gabinete" target="_self"> GABINETE DO PREFEITO</a>
       </div>
-      <OfficialDocuments client:load slug={slug} />
+      <OfficialDocuments client:load />
       <!-- <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
         Get This template
       </a> -->

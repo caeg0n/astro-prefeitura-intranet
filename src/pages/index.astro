@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import HorizontalShopItem from "../components/HorizontalShopItem.astro";
+import WebSocketIndicator from "../components/react/internet/WebSocketIndicator.jsx";
 // import { getCollection } from "astro:content";
 // import createSlug from "../lib/createSlug"
 // const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -20,6 +21,8 @@ import HorizontalShopItem from "../components/HorizontalShopItem.astro";
       </text>
     </div>
   </div>
+
+  <WebSocketIndicator client:load transition:persist/>
 
   <!-- CPD -->
   <div>

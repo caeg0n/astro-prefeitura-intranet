@@ -16,7 +16,7 @@ const componentStyles = `
 }
 `;
 
-function OfficialDocuments({ slug }) {
+function OfficialDocuments() {
   const numberOfOficios = 100;
   const [elements, setElements] = useState([]);
   let selecteds = useStore(oDNumbers);
@@ -38,6 +38,7 @@ function OfficialDocuments({ slug }) {
       <style>{componentStyles}</style>
       <div className="official-documents">
         <div className="divider my-0"></div>
+        {/* <Dfc client:load onAdd={() => console.log('Item added!')} /> */}
         <div className="card">
           <b>
             <h4>Número de oficios</h4>
