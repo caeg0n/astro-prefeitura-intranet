@@ -2,7 +2,6 @@
 import "../../components/react/oficios/style.css";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import OfficialDocuments from '../../components/react/oficios/OfficialDocuments.jsx';
-//import DynamicFieldComponent from '../../components/react/oficios/DynamicFieldComponent.jsx';
 
 export function getStaticPaths () {
  return [
@@ -19,7 +18,6 @@ export function getStaticPaths () {
   ];
 }
 const { slug } = Astro.params;
-// const Dfc = DynamicFieldComponent; 
 ---
 
 <BaseLayout title="Intranet" sideBarActiveItemID="projects">
