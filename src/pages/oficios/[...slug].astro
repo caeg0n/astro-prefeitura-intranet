@@ -37,7 +37,7 @@ const { slug } = Astro.params;
         <a class="btn" href="/oficios/ci" target="_self"> CONTROLE INTERNO</a>
         <a class="btn" href="/oficios/gabinete" target="_self"> GABINETE DO PREFEITO</a>
       </div>
-      <OfficialDocuments client:load />
+      <OfficialDocuments client:load slug={slug} />
       <!-- <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
         Get This template
       </a> -->
