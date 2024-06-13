@@ -18,6 +18,7 @@ export function getStaticPaths () {
   ];
 }
 const { slug } = Astro.params;
+const isActive = (linkSlug) => linkSlug === slug ? 'btn btn-active' : 'btn';
 ---
 
 <BaseLayout title="Intranet" sideBarActiveItemID="projects">
@@ -25,17 +26,17 @@ const { slug } = Astro.params;
     <div class="text-3xl w-full font-bold mb-5" id="controlDiv">CONTROLE DE OFICIOS {slug?.toLocaleUpperCase()}</div>
     <div class="mt-8">
       <div class="mt-4" id="linkContainer">
-        <a class="btn" href="/oficios/rh" target="_self"> RH</a>
-        <a class="btn" href="/oficios/cpd" target="_self"> CPD</a>
-        <a class="btn" href="/oficios/obras" target="_self"> SECRETARIA DE OBRAS</a>
-        <a class="btn" href="/oficios/licita" target="_self"> LICITAÇÃO</a>
-        <a class="btn" href="/oficios/contabil" target="_self"> CONTABILIDADE</a>
+        <a class={isActive('rh')} href="/oficios/rh" target="_self"> RH</a>
+        <a class={isActive('cpd')} href="/oficios/cpd" target="_self"> CPD</a>
+        <a class={isActive('obras')} href="/oficios/obras" target="_self"> SECRETARIA DE OBRAS</a>
+        <a class={isActive('licita')} href="/oficios/licita" target="_self"> LICITAÇÃO</a>
+        <a class={isActive('contabil')} href="/oficios/contabil" target="_self"> CONTABILIDADE</a>
       </div>
       <div class="mt-4">
-        <a class="btn" href="/oficios/tributos" target="_self"> TRIBUTOS</a>
-        <a class="btn" href="/oficios/protocolo" target="_self"> PROTOCOLO</a>
-        <a class="btn" href="/oficios/ci" target="_self"> CONTROLE INTERNO</a>
-        <a class="btn" href="/oficios/gabinete" target="_self"> GABINETE DO PREFEITO</a>
+        <a class={isActive('tributos')} href="/oficios/tributos" target="_self"> TRIBUTOS</a>
+        <a class={isActive('protocolo')} href="/oficios/protocolo" target="_self"> PROTOCOLO</a>
+        <a class={isActive('ci')} href="/oficios/ci" target="_self"> CONTROLE INTERNO</a>
+        <a class={isActive('gabinete')} href="/oficios/gabinete" target="_self"> GABINETE DO PREFEITO</a>
       </div>
       <OfficialDocuments client:load slug={slug} />
       <!-- <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
