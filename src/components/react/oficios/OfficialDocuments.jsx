@@ -1,6 +1,8 @@
 import { useState, useRef } from "react";
 import { SelectButton } from "primereact/selectbutton";
 import DynamicFieldComponent from "./DynamicFieldComponent.jsx";
+import Manifest from '@mnfst/sdk'
+import { useEffect } from "react";
 
 //import { useStore } from "@nanostores/react";
 //import { addODNumbers, oDNumbers } from "../../../storeOficio";
@@ -38,6 +40,10 @@ function OfficialDocuments({ slug }) {
     name: `${k + 1}`,
     value: k + 1,
   }));
+
+  useEffect(() => {
+    const manifest = new Manifest();
+  }, []);
 
   //let selecteds = useStore(oDNumbers);
 

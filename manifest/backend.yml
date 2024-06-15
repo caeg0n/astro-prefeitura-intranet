@@ -1,0 +1,7 @@
+name: astro prefeitura intranet
+entities:
+  😺 User:
+    properties:
+      - name
+      - { name: email, type: email }
+      - { name: pin, type: password }

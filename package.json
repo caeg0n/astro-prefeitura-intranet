@@ -9,7 +9,9 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "manifest": "node node_modules/manifest/scripts/watch/watch.js",
+    "manifest:seed": "node node_modules/manifest/dist/seed/seed.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^2.1.1",
@@ -21,6 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mnfst/sdk": "^0.1.0-alpha.1",
     "@nanostores/persistent": "^0.9.1",
     "@nanostores/react": "^0.7.1",
     "@types/react": "^18.0.21",
@@ -29,6 +32,7 @@
     "axios": "^1.6.7",
     "daisyui": "^4.4.10",
     "dayjs": "^1.11.9",
+    "manifest": "^4.0.0-alpha.8",
     "nanostores": "^0.9.5",
     "primeicons": "^6.0.1",
     "primereact": "^10.5.1",
